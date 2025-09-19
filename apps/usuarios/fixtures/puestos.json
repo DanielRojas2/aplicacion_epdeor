@@ -1,0 +1,106 @@
+[
+    {
+        "nro_item": "P001",
+        "departamento":"Gerencia General",
+        "unidad": "Gerente General"
+    },
+    {
+        "nro_item": "P002",
+        "departamento": "Gerencia General",
+        "unidad": "Asesor Legal"
+    },
+    {
+        "nro_item": "P003",
+        "departamento": "Gerencia General",
+        "unidad": "Auditoría"
+    },
+    {
+        "nro_item": "P004",
+        "departamento": "Gerencia General",
+        "unidad": "Secretaria Ejecutiva"
+    },
+    {
+        "nro_item": "P005",
+        "departamento": "Gerencia General",
+        "unidad": "Jefe Departamento de Administración y Finanzas"
+    },
+    {
+        "nro_item": "P006",
+        "departamento": "Gerencia General",
+        "unidad": "Jefe Departamento de Operaciones"
+    },
+    {
+        "nro_item": "P007",
+        "departamento": "Gerencia General",
+        "unidad": "Jefe Departamento de Operaciones Terminal de Buses Oruro"
+    },
+    {
+        "nro_item": "P008",
+        "departamento": "Gerencia General",
+        "unidad": "Encargado Area de Mantenimiento y Reparación"
+    },
+
+    {
+        "nro_item": "P009",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Contabilidad General"
+    },
+    {
+        "nro_item": "P010",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Recursos Humanos y Normas"
+    },
+    {
+        "nro_item": "P011",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Activos Fijos y Almacenes"
+    },
+    {
+        "nro_item": "P012",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Contrataciones"
+    },
+    {
+        "nro_item": "P013",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Tesorería"
+    },
+    {
+        "nro_item": "P014",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Cobranzas"
+    },
+    {
+        "nro_item": "P015",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Sistemas Informáticos y Redes"
+    },
+    {
+        "nro_item": "P016",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Presupuestos"
+    },
+    {
+        "nro_item": "P017",
+        "departamento": "Jefatura Departamento de Administración y Finanzas",
+        "unidad": "Archivos y Ujier"
+    },
+
+    {
+        "nro_item": "P018",
+        "departamento": "Area de Mantenimiento",
+        "unidad": "Mantenimiento"
+    },
+
+    {
+        "nro_item": "P019",
+        "departamento": "Jefatura Departamento de Operaciones Hotel",
+        "unidad": "Operaciones Hotel"
+    },
+
+    {
+        "nro_item": "P020",
+        "departamento": "Jefatura Departamento de Operaciones Terminal de Buses Oruro",
+        "unidad": "Operaciones Terminal"
+    }
+]
