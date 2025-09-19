@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} - EPDEOR</title>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/datatables.min.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="page">
@@ -46,5 +49,9 @@
             </div>
         </main>
     </div>
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/datatables.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -10,11 +10,14 @@ class PerfilUsuario(models.Model):
     apellido_materno = models.CharField(
         max_length=25, blank=False, null=False
     )
+    ci = models.CharField(max_length=7, blank=False, null=False)
     alta = models.DateField(auto_now_add=True)
-    baja = models.DateField()
+    baja = models.DateField(blank=True, null=True)
     estado = models.BooleanField(default=True)
     puesto = models.ForeignKey(Puesto, on_delete=models.CASCADE)
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(
+        User, on_delete=models.CASCADE, null=True, blank=True
+    )
 
     class Meta:
         verbose_name = "Perfil de Usuario"
