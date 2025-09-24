@@ -38,7 +38,12 @@
                     <li>
                         <a href="#0">Archivos</a>
                     </li>
-                    <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
+                    <li class="small">
+                        <form action="{% url 'cerrar_sesion' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link">Cerrar sesión</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

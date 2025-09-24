@@ -1,55 +1,56 @@
-{% extends "base.html" %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inciar Sesión - EPDEOR</title>
+    <link rel="stylesheet" href="{% static 'login_form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static 'login_form/css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inner" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+            <div class="image-holder">
+                <img src="{% static 'assets/img/epdeor_frontis.png' %}" alt="">
+            </div>
 
-{% block title %}Iniciar Sesión{% endblock %}
+            <form method="post" action="{% url 'iniciar_sesion' %}">
+                {% csrf_token %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'login_form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
-<link rel="stylesheet" href="{% static 'login_form/css/style.css' %}">
-{% endblock %}
+                <h3>Iniciar Sesión</h3>
 
-{% block content %}
-<div class="wrapper">
-    <div class="inner" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-radius: 10px;">
-        <div class="image-holder">
-            <img src="{% static 'assets/img/epdeor_frontis.png' %}" alt="">
+                {% if form.errors %}
+                    <p style="color: red;">Credenciales no válidas. Inténtalo de nuevo.</p>
+                {% endif %}
+
+                <div class="form-wrapper">
+                    <input type="text" 
+                        name="{{ form.username.name }}" 
+                        value="{{ form.username.value|default_if_none:'' }}" 
+                        class="form-control" 
+                        placeholder="Nombre de usuario" 
+                        required>
+                    <i class="zmdi zmdi-account"></i>
+                </div>
+
+                <div class="form-wrapper">
+                    <input type="password" 
+                        name="{{ form.password.name }}" 
+                        class="form-control" 
+                        placeholder="Contraseña" 
+                        required>
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+
+                <input type="hidden" name="next" value="{{ next }}">
+
+                <button type="submit" style="background-color: #CC0000; border-radius: 10px;">
+                    Iniciar Sesión
+                    <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+            </form>
         </div>
-
-        <form method="post" action="{% url 'iniciar_sesion' %}">
-            {% csrf_token %}
-
-            <h3>Iniciar Sesión</h3>
-
-            {% if form.errors %}
-                <p style="color: red;">Credenciales no válidas. Inténtalo de nuevo.</p>
-            {% endif %}
-
-            <div class="form-wrapper">
-                <input type="text" 
-                       name="{{ form.username.name }}" 
-                       value="{{ form.username.value|default_if_none:'' }}" 
-                       class="form-control" 
-                       placeholder="Nombre de usuario" 
-                       required>
-                <i class="zmdi zmdi-account"></i>
-            </div>
-
-            <div class="form-wrapper">
-                <input type="password" 
-                       name="{{ form.password.name }}" 
-                       class="form-control" 
-                       placeholder="Contraseña" 
-                       required>
-                <i class="zmdi zmdi-lock"></i>
-            </div>
-
-            <input type="hidden" name="next" value="{{ next }}">
-
-            <button type="submit" style="background-color: #CC0000; border-radius: 10px;">
-                Iniciar Sesión
-                <i class="zmdi zmdi-arrow-right"></i>
-            </button>
-        </form>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

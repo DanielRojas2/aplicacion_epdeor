@@ -1,3 +1,4 @@
 python manage.py poblar_departamentos "apps\usuarios\fixtures\departamentos.json"
 python manage.py poblar_unidades "apps\usuarios\fixtures\unidades.json"
 python manage.py poblar_puestos "apps\usuarios\fixtures\puestos.json"
+python manage.py crear_roles

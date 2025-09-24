@@ -1,8 +1,20 @@
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User, Group
 from django.utils.timezone import now
 from .models.PerfilUsuario import PerfilUsuario
+from .functions.normalizar_username import normalizar_username
+
+@receiver(pre_save, sender=PerfilUsuario)
+def validar_fecha_alta(sender, instance, **kwargs):
+    hoy = timezone.now().date()
+    if instance.alta < hoy.replace(day=1):
+        raise ValidationError("La fecha de alta no puede ser anterior al inicio del mes vigente.")
+    
+    if instance.baja and instance.baja < hoy.replace(day=1):
+        raise ValidationError("La fecha de baja no puede ser anterior al inicio del mes vigente.")
 
 @receiver(pre_save, sender=PerfilUsuario)
 def actualizar_estado_usuario(sender, instance, **kwargs):
@@ -18,8 +30,9 @@ def crear_usuario_actualizar_usuario(sender, instance, created, **kwargs):
     user = instance.usuario
 
     if created and not user:
-        username = f"{instance.nombre}{instance.apellido_paterno}".lower()
-        password = f"{instance.ci}.epdeor"
+        nombre_completo = f"{instance.nombre}{instance.apellido_paterno}"
+        username = normalizar_username(nombre_completo)
+        password = f"epdeor.{instance.ci}"
 
         user = User.objects.create_user(
             username=username,
@@ -37,7 +50,6 @@ def crear_usuario_actualizar_usuario(sender, instance, created, **kwargs):
         user.last_name = instance.apellido_paterno
         user.save()
 
-    # ---- Lógica de roles ----
     UNIDAD_A_GRUPO = {
         "Activos Fijos y Almacenes": "Encargado de almacenes",
         "Sistemas Informáticos y Redes": "Encargado de sistemas",
